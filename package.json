@@ -1,0 +1,26 @@
+{
+  "name": "filippobovo.com",
+  "version": "1.0.0",
+  "description": "Filippo Bovo personal website.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fbovo/website.git"
+  },
+  "author": "Filippo Bovo <hello@filippobovo.com>",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/fbovo/website/issues"
+  },
+  "homepage": "https://filippobovo.com",
+  "devDependencies": {},
+  "dependencies": {
+    "@zeit/next-preact": "^0.1.0",
+    "next": "^8.1.0",
+    "preact": "^8.4.2",
+    "preact-compat": "^3.18.5",
+    "preact-context": "^1.1.3"
+  }
+}
