@@ -1,0 +1,22 @@
+
+$t__color-stack : (
+	mine-shaft : #333,
+	concrete   : #f3f3f3,
+	white      : #fff,
+	monza      : #c3002f
+) !default;
+
+///
+/// Build color scheme
+///
+/// @param  {String}  $name                            - The color name
+/// @param  {Map}     $color-stack  [$t__color-stack]  - The color stack
+///
+/// @return {Color}
+///
+@function color( $name, $color-stack: $t__color-stack )
+{
+	@if map-has-key( $color-stack, $name ) {
+		@return map-get( $color-stack, $name );
+	}
+}

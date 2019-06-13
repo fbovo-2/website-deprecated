@@ -1,0 +1,181 @@
+
+@import "fbovo/consistency/src/scss/helpers/font";
+@import "fbovo/consistency/src/scss/helpers/responsive";
+@import "../helpers/text-size";
+
+.text 
+{
+	///
+	/// Common style
+	///
+	@include on( all )
+	{
+		@include font( serif );
+
+		@each $group, $font-size in $t__text-size-stack {
+			&.-#{$group}
+			{
+				@include text-size( $group ); /// Alter standard behavior
+			}
+		}
+
+		///
+		/// Modifiers
+		///
+		&.-center
+		{
+			text-align : center;
+		}
+
+		&.-right
+		{
+			text-align : right;
+		}
+
+		i,
+		&.-italic
+		{
+			font-style : italic;
+		}
+
+		b,
+		&.-bold
+		{
+			font-weight : 700;
+		}
+
+		&.-no-margin
+		{
+			margin-top : 0;
+		}
+	}
+
+	///
+	/// Mobile specific style
+	///
+	@include on( mobile )
+	{
+		@each $group, $font-size in $t__text-size-stack {
+			&.-#{$group}\@mobile
+			{
+				@include text-size( $group ); /// Alter standard behavior
+			}
+		}
+
+		///
+		/// Modifiers
+		///
+		&.-center\@mobile
+		{
+			text-align : center;
+		}
+
+		&.-right\@mobile
+		{
+			text-align : right;
+		}
+
+		i,
+		&.-italic\@mobile
+		{
+			font-style : italic;
+		}
+
+		b,
+		&.-bold\@mobile
+		{
+			font-weight : 700;
+		}
+
+		&.-no-margin\@mobile
+		{
+			margin-top : 0;
+		}
+	}
+
+	///
+	/// Tablet specific style
+	///
+	@include on( tablet )
+	{
+		@each $group, $font-size in $t__text-size-stack {
+			&.-#{$group}\@tablet
+			{
+				@include text-size( $group ); /// Alter standard behavior
+			}
+		}
+
+		///
+		/// Modifiers
+		///
+		&.-center\@tablet
+		{
+			text-align : center;
+		}
+
+		&.-right\@tablet
+		{
+			text-align : right;
+		}
+
+		i,
+		&.-italic\@tablet
+		{
+			font-style : italic;
+		}
+
+		b,
+		&.-bold\@tablet
+		{
+			font-weight : 700;
+		}
+
+		&.-no-margin\@tablet
+		{
+			margin-top : 0;
+		}
+	}
+
+	///
+	/// Desktop specific style
+	///
+	@include on( desktop )
+	{
+		@each $group, $font-size in $t__text-size-stack {
+			&.-#{$group}\@desk
+			{
+				@include text-size( $group ); /// Alter standard behavior
+			}
+		}
+
+		///
+		/// Modifiers
+		///
+		&.-center\@desk
+		{
+			text-align : center;
+		}
+
+		&.-right\@desk
+		{
+			text-align : right;
+		}
+
+		i,
+		&.-italic\@desk
+		{
+			font-style : italic;
+		}
+
+		b,
+		&.-bold\@desk
+		{
+			font-weight : 700;
+		}
+
+		&.-no-margin\@desk
+		{
+			margin-top : 0;
+		}
+	}
+}

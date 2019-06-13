@@ -1,0 +1,74 @@
+
+/// Theme
+
+///
+/// @type   (Number)
+///
+$t__grid-gutter : 1%; 
+
+///
+/// @type   {Map}
+///
+$t__text-size-stack: (
+	mega : 42px,
+	xxl  : 33px,
+	xl   : 26px,
+	l    : 20px,
+	m    : 16px,
+	s    : 13px,
+	xs   : 11px
+);
+
+
+/// Consistency
+
+///
+/// @type   (Number)
+///
+$c__font-size : 16px;
+
+///
+/// @type   (Number)
+///
+$c__line-height : 24px;
+
+///
+/// @type   (Map)
+///
+$c__font-stack : (
+	/// Sans-serif (default)
+	sans-serif : (
+		family : ( 'Montserrat', sans-serif ),
+		weight : 400,
+		style  : normal,
+	),
+	sans-serif--regular : (
+		extend : sans-serif,
+	),
+	sans-serif--bold : (
+		extend : sans-serif,
+		weight : 700,
+	),
+	serif : (
+		family : ( 'Merriweather', serif ),
+		weight : 400,
+		style  : normal,
+	),
+);
+
+///
+/// @type   (Map)
+///
+$c__media-queries : (
+	mobile  : 'screen and (max-width: 40em)', /// max-width 640px, mobile-only styles
+	tablet  : 'screen and (min-width: 40.063em) and (max-width: 64em)', /// min-width 641px and max-width 1024px
+	desktop : 'screen and (min-width: 64.063em)' /// min-width 1025px
+);
+
+///
+/// @type  {Map}
+///
+$c__z-indexes : (
+	'tooltip',
+	'dialog',
+);

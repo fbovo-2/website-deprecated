@@ -1,0 +1,63 @@
+
+@import "fbovo/consistency/src/scss/helpers/common";
+@import "fbovo/consistency/src/scss/helpers/responsive";
+@import "fbovo/consistency/src/scss/helpers/z-index";
+@import "../helpers/color";
+
+.dialog
+{
+	///
+	/// Common style
+	///
+	@include on( all ) 
+	{
+		display    : none;
+		opacity    : 0;
+		transition : opacity 0.25s;
+		z-index    : z-index( dialog );
+
+		///
+		/// Elements
+		///
+		&__close
+		{
+			position : absolute;
+			top      : 0.5em;
+			right    : 0.5em;
+			cursor   : pointer;
+			z-index  : z-index( dialog ) + 1;
+
+			> svg
+			{
+				width : 27px;
+				width : rem( 27px );
+			}
+		}
+
+		&__content
+		{
+			margin-top : 32px;
+			margin-top : rem( 32px );
+		}
+
+		///
+		/// Modifiers
+		///
+		&.-open
+		{
+			display : block;
+			opacity : 1;
+		}
+
+		&.-inner 
+		{
+			position         : absolute;
+			top              : 0;
+			left             : 0;
+			width            : 100%;
+			height           : 100%;
+			background-color : color( mine-shaft );
+			color            : color( white );
+		}
+	}
+}

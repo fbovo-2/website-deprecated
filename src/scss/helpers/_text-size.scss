@@ -1,0 +1,34 @@
+
+@import "fbovo/consistency/src/scss/helpers/text-block";
+
+///
+/// @type   {Map}
+///
+$t__text-size-stack: (
+	mega : 42px,
+	xxl  : 33px,
+	xl   : 26px,
+	l    : 20px,
+	m    : 16px,
+	s    : 13px,
+	xs   : 11px
+) !default;
+
+///
+/// Text size
+///
+/// @param   {String}  $group                                   - The group name
+/// @param   {Map}     $font-size-stack  [$t__text-size-stack]  - The font size stack
+///
+/// @require {Mixin}   text-block()
+///
+@mixin text-size( $group, $font-size-stack: $t__text-size-stack )
+{
+	@if not map-has-key( $font-size-stack, $group ) {
+		@error '"#{$group}" is not defined in the font-size stack.';
+	}
+
+	$size : map-get( $font-size-stack, $group );
+
+	@include text-block( $size... );
+}

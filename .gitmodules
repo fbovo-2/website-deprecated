@@ -1,0 +1,3 @@
+[submodule "src/vendor/fbovo/consistency"]
+	path = src/vendor/fbovo/consistency
+	url = https://github.com/fbovo/consistency.git

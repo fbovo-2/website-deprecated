@@ -1,0 +1,39 @@
+
+@import "fbovo/consistency/src/scss/helpers/font";
+@import "fbovo/consistency/src/scss/helpers/input-block";
+@import "color";
+
+///
+/// Base input style
+///
+/// @param  {Number}  $font-size   [$c__font-size]  - The font size
+/// @param  {String}  $color       [mine-shaft]     - The text color
+/// @param  {String}  $background  [concrete]       - The background color
+///
+@mixin input( $font-size: $c__font-size, $color: mine-shaft, $background: concrete )
+{
+	@include font( sans-serif );
+	@include input-block( $font-size );
+
+	vertical-align : bottom;
+	background     : color( $background );
+	color          : color( $color );
+	border         : none;
+	border-radius  : 2px;
+
+	&:focus 
+	{
+		outline-color  : color( $color );
+		outline-width  : 1px;
+		outline-style  : dashed;
+		outline-offset : -1px;
+	}
+}
+
+///
+/// Custom checkbox
+///
+@mixin input--checkbox()
+{
+
+}

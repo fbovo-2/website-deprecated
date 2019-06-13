@@ -1,0 +1,10 @@
+
+@import "../helpers/input";
+
+textarea
+{
+	@include input();
+
+	box-sizing : border-box;
+	resize     : vertical;
+}

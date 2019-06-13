@@ -1,0 +1,73 @@
+
+@import "fbovo/consistency/src/scss/helpers/common";
+@import "fbovo/consistency/src/scss/helpers/responsive";
+
+.coffee 
+{
+	///
+	/// Common style
+	///
+	@include on( all )
+	{
+		display         : flex;
+		flex-direction  : column;
+		justify-content : center;
+		align-items     : center;
+
+		///
+		/// Elements
+		///
+		&__cup 
+		{
+			margin-top : 24px;
+			margin-top : rem( 24px );
+
+			svg
+			{
+				width     : 100%;
+				max-width : 32px;
+				max-width : rem( 32px );
+
+				> path:last-child
+				{
+					stroke-dasharray  : 100;
+					stroke-dashoffset : 100;
+					animation         : coffee-cup-fx 5s linear infinite;
+				}
+			}
+		}
+	}
+
+	///
+	/// Desktop specific style
+	///
+	@include on( desktop )
+	{
+		///
+		/// Elements
+		///
+		&__cup 
+		{
+			svg
+			{
+				max-width : 60px;
+				max-width : rem( 60px );
+			}
+		}
+	}
+}
+
+@keyframes coffee-cup-fx 
+{
+	0% {
+		stroke-dashoffset : 100;
+	}
+
+	50% {
+		stroke-dashoffset : 0;
+	}
+
+	100% {
+		stroke-dashoffset : -100;
+	}
+}

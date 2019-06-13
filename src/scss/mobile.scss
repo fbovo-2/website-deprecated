@@ -1,0 +1,11 @@
+
+///
+/// @type   {String|List}
+///
+$c__export-devices : mobile tablet all;
+
+@import "init";
+@import "fbovo/consistency/src/scss/base/normalize";
+// @import "~aos/src/sass/aos";
+@import "base/all";
+@import "blocks/all";

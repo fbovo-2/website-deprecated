@@ -1,0 +1,137 @@
+
+@import "fbovo/consistency/src/scss/helpers/grid";
+@import "fbovo/consistency/src/scss/helpers/responsive";
+
+///
+/// @type   (Map)
+///
+$t__grid-viewports : (
+	all     : 12 0%,
+	mobile  : 12 0% mobile,
+	tablet  : 12 0% tablet,
+	desktop : 12 0% desk,
+) !default;
+
+.grid 
+{
+	@each $viewport, $grid in $t__grid-viewports {
+		///
+		/// @type   {Number}
+		///
+		$t__grid-cells : 12 !default;
+
+		@if length( $grid ) >= 1 {
+			$t__grid-cells : nth( $grid, 1 );
+		}
+
+		///
+		/// @type   (Number)
+		///
+		$t__grid-gutter : 0% !default;
+
+		@if length( $grid ) >= 2 {
+			$t__grid-gutter : nth( $grid, 2 );
+		}
+
+		///
+		/// @type   {String}
+		///
+		$t__grid-suffix : '' !default;
+
+		@if length( $grid ) >= 3 {
+			$t__grid-suffix : '\\@' + nth( $grid, 3 );
+		}
+
+		@include on( $viewport ) 
+		{
+			@include grid__row();
+
+			///
+			/// Elements
+			///
+			&__cell 
+			{
+				@include grid__cell( 100% - ( $t__grid-gutter * 2 ), $t__grid-gutter );
+
+				input[type="email"],
+				input[type="number"],
+				input[type="password"],
+				input[type="search"],
+				input[type="tel"],
+				input[type="text"],
+				input[type="url"], 
+				textarea,
+				.input-text 
+				{
+					width : 100%; /// Experimental: input text full width
+				}
+
+				///
+				/// Modifiers
+				///
+				@for $i from 1 through $t__grid-cells {
+					$offsets     : $t__grid-cells - $i;
+					$cell-width  : grid-element-width( $t__grid-cells, $t__grid-gutter, $i );
+					$cell-class  : '-span-#{$i}\\/#{$t__grid-cells}#{$t__grid-suffix}';
+					$break-class : '-break#{$t__grid-suffix}';
+
+					&.#{$cell-class} 
+					{
+						float : left;
+						width : $cell-width;
+
+						@if $offsets > 0 {
+							@for $o from 1 through $offsets {
+								$offset-width : grid-element-width( $t__grid-cells, $t__grid-gutter, $o );
+								$offset-class : '-offset-#{$o}#{$t__grid-suffix}';
+
+								&.#{$offset-class} {
+									@include grid__offset( $offset-width, $t__grid-gutter );
+								}
+							}
+						}
+					}
+
+					&.#{$break-class} 
+					{
+						clear : left;
+					}
+				}
+			}
+
+			///
+			/// Block modifiers
+			///
+			&.-no-gutter
+			{
+				.grid__cell
+				{
+					width       : 100%;
+					margin-left : 0;
+
+					@for $i from 1 through $t__grid-cells {
+						$offsets     : $t__grid-cells - $i;
+						$cell-width  : grid-element-width( $t__grid-cells, 0%, $i );
+						$cell-class  : '-span-#{$i}\\/#{$t__grid-cells}#{$t__grid-suffix}';
+
+						&.#{$cell-class} 
+						{
+							width : $cell-width;
+
+							@if $offsets > 0 {
+								@for $o from 1 through $offsets {
+									$offset-width : grid-element-width( $t__grid-cells, 0%, $o );
+									$offset-class : '-offset-#{$o}#{$t__grid-suffix}';
+
+									&.#{$offset-class} {
+										@include grid__offset( $offset-width, 0% );
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

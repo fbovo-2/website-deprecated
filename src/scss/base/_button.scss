@@ -1,0 +1,10 @@
+
+@import "../helpers/button";
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"]
+{
+	@include button( $c__font-size );
+}

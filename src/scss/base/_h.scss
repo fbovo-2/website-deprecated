@@ -1,0 +1,26 @@
+
+@import "../helpers/text-size";
+
+///
+/// @type   {Map}
+///
+$t__h-stack : (
+	h1 : xxl,
+	h2 : xl,
+	h3 : l,
+	h4 : m,
+	h5 : s,
+	h6 : xs,
+) !default;
+
+///
+/// Build <h tags
+/// 
+@each $tag, $size in $t__h-stack {
+	#{$tag} 
+	{
+		@include text-size( $size );
+
+		font-weight : 400; /// Reset to normal, use specific class in case
+	}
+}  

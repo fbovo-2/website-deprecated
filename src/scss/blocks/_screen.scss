@@ -1,0 +1,32 @@
+
+@import "fbovo/consistency/src/scss/helpers/common";
+@import "fbovo/consistency/src/scss/helpers/clearfix";
+@import "fbovo/consistency/src/scss/helpers/responsive";
+@import "../helpers/color";
+
+.screen
+{
+	///
+	/// Common style
+	///
+	@include on( all ) 
+	{
+		@include clearfix();
+
+		///
+		/// Elements
+		///
+		&__image
+		{
+			width : 100%;
+			float : left;
+		}
+	}
+
+	///
+	/// Desktop specific style
+	///
+	@include on( desktop )
+	{
+	}
+}
