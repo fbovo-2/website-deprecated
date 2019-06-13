@@ -1,0 +1,165 @@
+
+@import "fbovo/consistency/src/scss/helpers/common";
+@import "fbovo/consistency/src/scss/helpers/responsive";
+@import "../helpers/color";
+
+.slide
+{
+	///
+	/// Common style
+	///
+	@include on( all ) 
+	{
+		display        : flex;
+		flex-direction : column;
+		width          : 100%;
+		position       : relative;
+
+		///
+		/// Elements
+		///
+		&__content
+		{
+			flex : 1;
+
+			///
+			/// Modifiers
+			///
+			&.-middle
+			{
+				display     : flex;
+				align-items : center;
+			}
+		}
+
+		&__scroll-down
+		{
+			text-align : center;
+
+			a
+			{
+				display       : inline-block;
+				font-size     : 33px;
+				font-size     : rem( 33px );
+				line-height   : 1em;
+				cursor        : pointer;
+				margin-top    : 0.5em;
+				margin-bottom : 0.5em;
+				animation     : scroll-down-fx 2s infinite;
+			}
+
+			svg
+			{
+				width : 33px;
+				width : rem( 33px );
+				height: 33px;
+				height: rem( 33px );
+			}
+		}
+
+		///
+		/// Modifiers
+		///
+		&.-full
+		{
+			min-height : 100%;
+			min-height : 100vh;
+		}
+		&.-gray
+		{
+			background-color : color( concrete );
+		}
+
+		&.-works
+		{
+			h2
+			{
+				margin-bottom : $c__line-height;
+				margin-bottom : rem( $c__line-height );
+			}
+
+			h3
+			{
+				> span {
+					display : inline-block;
+				}
+			}
+		}
+
+		&.-contact
+		{
+			form 
+			{
+				width : 100%;
+			}
+		}
+	}
+
+	///
+	/// Desktop specific style
+	///
+	@include on( desktop )
+	{
+		///
+		/// Elements
+		///
+		&__content
+		{
+			///
+			/// Modifiers
+			///
+			&.-middle\@desk
+			{
+				display     : flex;
+				align-items : center;
+			}
+		}
+
+		///
+		/// Modifiers
+		///
+		&.-full\@desk
+		{
+			min-height : 100%;
+			min-height : 100vh;
+		}
+
+		&.-works
+		{
+			h3
+			{
+				padding-left  : 2%;
+				padding-right : 2%;
+			}
+		}
+
+		&.-contact
+		{
+			form 
+			{
+				display      : block;
+				margin-left  : auto;
+				margin-right : auto;
+				max-width    : 960px;
+			}
+		}
+	}
+}
+
+@keyframes scroll-down-fx 
+{
+	0% {
+		-webkit-transform : translate( 0, 0 );
+		transform         : translate( 0, 0 ); 
+	}
+	
+	50% {
+		-webkit-transform : translate( 0, 10px );
+		transform         : translate( 0, 10px );
+	}
+
+	100% {
+		-webkit-transform : translate( 0, 0 );
+		transform         : translate( 0, 0 );
+	}
+}

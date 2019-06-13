@@ -1,0 +1,20 @@
+
+@import "fbovo/consistency/src/scss/helpers/responsive";
+@import "../helpers/color";
+
+.feedback
+{
+	///
+	/// Common style
+	///
+	@include on( all ) 
+	{
+		///
+		/// Modifiers
+		///
+		&.-error
+		{
+			color : color( monza );
+		}
+	}
+}

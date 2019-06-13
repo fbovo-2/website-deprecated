@@ -1,0 +1,72 @@
+
+@import "fbovo/consistency/src/scss/helpers/common";
+
+///
+/// @type   {Number}
+///
+$_width-min : 641;
+
+///
+/// @type   {Number}
+/// 
+$_width-max : 1920;
+
+///
+/// @type   {Number}
+/// 
+$_font-min  : 16;
+
+///
+/// @type   {Number}
+/// 
+$_font-max  : 24; 
+
+///
+/// Precise control over responsive typography
+/// 
+/// @param   {Number}    $min-font     - Minimum font size with units
+/// @param   {Number}    $max-font     - Maximum font size with units
+/// @param   {Number}    $start-scale  - Start of viewport range with units
+/// @param   {Number}    $end-scale    - End of viewport range with or without units
+/// 
+/// @require {Function}  strip-unit()
+/// 
+/// @link    http://madebymike.com.au/writing/precise-control-responsive-typography/
+/// 
+@mixin relative-font-size( $min-font, $max-font, $start-scale, $end-scale ) 
+{
+	$font-difference  : strip-unit( abs( $max-font - $min-font ) );
+	$scale-difference : strip-unit( abs( $end-scale - $start-scale ) );
+
+	font-size : calc( #{$min-font} + #{$font-difference} * ( ( 100vw - #{$start-scale} ) / #{$scale-difference} ) );
+}
+
+html
+{
+	font-size  : $c__font-size;
+	overflow-x : hidden; /// Experimental
+}
+
+// html
+// { 
+// 	font-size : #{$_font-min}px; 
+// }
+
+@media ( min-width: #{$_width-min}px ) and ( max-width: #{$_width-max}px )
+{
+	///
+	/// @link   https://www.madebymike.com.au/writing/precise-control-responsive-typography/
+	///
+	html
+	{
+		font-size : calc( #{$_font-min}px + ( #{$_font-max} - #{$_font-min} ) * ( ( 100vw - #{$_width-min}px) / ( #{$_width-max} - #{$_width-min} ) ) );
+	}
+}
+
+@media ( min-width: #{$_width-max}px )
+{
+	html
+	{ 
+		font-size : #{$_font-max}px;
+	}
+}

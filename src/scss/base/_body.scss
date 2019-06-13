@@ -1,0 +1,23 @@
+
+@import "fbovo/consistency/src/scss/helpers/font";
+@import "../helpers/color";
+
+///
+/// 1. Make everything look a little bit nicer.
+///
+body
+{
+	@include font( serif );
+	@include font-size( $c__font-size );
+	
+	background : color( white );
+	color      : color( mine-shaft );
+
+	-moz-osx-font-smoothing : grayscale; /// 1
+	-webkit-font-smoothing  : antialiased; /// 1
+
+	&.debug 
+	{
+		background-image : url( "data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1\' height=\'24\'><rect style=\'fill: rgb(196,196,196);\' width=\'1\' height=\'0.25px\' x=\'0\' y=\'23\'/></svg>" );
+	}
+}

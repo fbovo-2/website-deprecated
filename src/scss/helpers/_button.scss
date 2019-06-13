@@ -1,0 +1,30 @@
+
+@import "fbovo/consistency/src/scss/helpers/common";
+@import "fbovo/consistency/src/scss/helpers/font";
+@import "fbovo/consistency/src/scss/helpers/input-block";
+@import "color";
+
+///
+/// Custom button
+///
+/// @param  {Number}  $font-size   [$c__font-size]  - The font size
+/// @param  {String}  $color       [white]          - The text color
+/// @param  {String}  $background  [mine-shaft]     - The background color
+///
+@mixin button( $font-size: $c__font-size, $color: white, $background: mine-shaft )
+{
+	@include font( sans-serif );
+	@include input-block( $font-size );
+
+	padding-left     : $c__line-height / 2;
+	padding-left     : rem( $c__line-height / 2 );
+	padding-right    : $c__line-height / 2;
+	padding-right    : rem( $c__line-height / 2 );
+	vertical-align   : bottom;
+	text-transform   : uppercase;
+	background-color : color( $background );
+	color            : color( $color );
+	border           : none;
+	border-radius    : 2px;
+	cursor           : pointer;
+}

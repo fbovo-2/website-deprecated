@@ -1,0 +1,35 @@
+
+@import "fbovo/consistency/src/scss/helpers/responsive";
+
+///
+/// @type   (Number)
+/// 
+$t__page-max-size : 1920px !default;
+
+.container
+{
+	///
+	/// Common style
+	///
+	@include on( all ) 
+	{
+		width        : 100%;
+		max-width    : $t__page-max-size;
+		margin-left  : auto;
+		margin-right : auto;
+	}
+
+	///
+	/// Mobile  and tablet specific style
+	///
+	@include on( mobile tablet )
+	{
+		///
+		/// Modifiers
+		///
+		&.-hello
+		{
+			text-align : center;
+		}
+	}
+}

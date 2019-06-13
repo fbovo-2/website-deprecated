@@ -1,0 +1,12 @@
+
+@import "fbovo/consistency/src/scss/helpers/common";
+@import "fbovo/consistency/src/scss/helpers/font";
+@import "fbovo/consistency/src/scss/helpers/input-block";
+@import "../helpers/color";
+
+label
+{
+	display : block;
+
+	@include text-block( $c__font-size );
+}

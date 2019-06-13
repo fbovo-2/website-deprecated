@@ -1,0 +1,22 @@
+{
+	plugins: [
+		[
+			"@babel/plugin-transform-react-jsx", 
+			{
+				"pragma":     "h",
+				"pragmaFrag": "\"span\""
+			}
+		]
+	],
+	"presets": [ 
+		[
+			"@babel/preset-env",
+			{
+				"targets": {
+					"node":     "current",
+					"browsers": [ "last 2 versions" ]
+				}
+			}
+		]
+	]
+}
